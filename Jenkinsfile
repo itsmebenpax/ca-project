@@ -10,6 +10,7 @@ pipeline {
     stage('Parrallel') {
       parallel {
         stage('Test') {
+          options { skipDefaultCheckout true }
           agent {
             docker {
               image 'python:3.5.1'
@@ -24,6 +25,7 @@ pipeline {
         }
 
         stage('zip codebase') {
+          options { skipDefaultCheckout true }
           agent {
             docker {
               image 'ubuntu'
